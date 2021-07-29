@@ -2,9 +2,10 @@
   "name": "jchart",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/jchart.js",
   "scripts": {
     "dev": "webpack serve --config demo/webpack.config.js",
+    "build": "webpack build --config webpack.config.js",
     "build:demo": "webpack build --config demo/webpack.config.js --node-env production",
     "serve:demo": "serve demo/dist"
   },
@@ -16,7 +17,6 @@
     "bignumber.js": "^9.0.1",
     "color-string": "^1.5.5",
     "gl-matrix": "^3.3.0",
-    "gulp-rename": "^2.0.0",
     "lodash": "^4.17.21",
     "tapable": "^2.2.0"
   },
@@ -24,14 +24,15 @@
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.30.0",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sourcemaps": "^3.0.0",
     "html-webpack-plugin": "^5.3.2",
-    "webpack": "^5.44.0",
+    "lodash-webpack-plugin": "^0.11.6",
+    "webpack": "^5.47.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   }

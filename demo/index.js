@@ -1,14 +1,14 @@
-import Data2D from '../src/plugins/data/2d-data';
-import Data1D from '../src/plugins/data/1d-data';
-import Coord2D from '../src/plugins/axis/2d-coord';
-import Geo2D from '../src/plugins/axis/2d-geo';
-import LineChart from '../src/plugins/chart/LineChart';
-import BarChart from '../src/plugins/chart/BarChart';
-import PieChart from '../src/plugins/chart/PieChart';
-import LineIndicator from '../src/plugins/overlayer/LineIndicator';
-import Legend from '../src/plugins/overlayer/Legend.js';
-
-import JChart from '../src/index';
+import JChart, {
+    Data2D,
+    Data1D,
+    Coord2D,
+    Geo2D,
+    LineChart,
+    BarChart,
+    PieChart,
+    LineIndicator,
+    Legend,
+} from '../src/index';
 import data1 from './data-big-1.json';
 import data2 from './data-big-2.json';
 

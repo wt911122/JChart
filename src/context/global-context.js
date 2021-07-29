@@ -1,6 +1,6 @@
 import { SyncHook } from 'tapable';
 import { effect, reactive } from '@vue/reactivity';
-import { initSchedule } from '../schedule';
+import { initSchedule } from '../schedule/index.js';
 import Data from './layers/data';
 import Coordinate from './layers/coordinate';
 import Chart from './layers/chart';
