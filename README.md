@@ -3,6 +3,7 @@
 [![License](http://img.shields.io/badge/license-apache%20v2-blue.svg)](https://github.com/kubecube-io/kubecube/blob/main/LICENSE)
 
 JChart consist of line chart, bar chart and pie chart which designed for basic data visualization. 
+[demo](https://wt911122.github.io/JChart/demo/dist/index.html)
 
 ## Features
 + Reactive Data
