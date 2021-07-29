@@ -6,6 +6,11 @@ JChart consist of line chart, bar chart and pie chart which designed for basic d
 
 <b>[demo](https://wt911122.github.io/JChart/demo/dist/index.html)</b>
 
+## install
+```
+npm i @joskii/jchart
+```
+
 ## Features
 + Reactive Data
 + Plugin based
