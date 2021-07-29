@@ -1,4 +1,5 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: path.resolve(__dirname, './src/index.js'),
@@ -8,10 +9,10 @@ module.exports = {
         library: 'jchart',
         libraryTarget: 'umd',
         auxiliaryComment: {
-            root: 'Root Comment',
-            commonjs: 'CommonJS Comment',
-            commonjs2: 'CommonJS2 Comment',
-            amd: 'AMD Comment',
+            root: 'Root jchart',
+            commonjs: 'CommonJS jchart',
+            commonjs2: 'CommonJS2 jchart',
+            amd: 'AMD jchart',
         },
     },
     module: {
@@ -29,4 +30,15 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    compress: {
+                        drop_console: true
+                    }
+                }
+            })
+        ]
+    }
 };
