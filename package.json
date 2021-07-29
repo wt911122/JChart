@@ -1,7 +1,11 @@
 {
   "name": "@joskii/jchart",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JChart consist of line chart, bar chart and pie chart which designed for basic data visualization.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wt911122/JChart"
+  },
   "main": "dist/jchart.js",
   "scripts": {
     "dev": "webpack serve --config demo/webpack.config.js",
