@@ -8,6 +8,7 @@ import JChart, {
     PieChart,
     LineIndicator,
     Legend,
+    GeoIndicator,
 } from '../src/index';
 import data1 from './data-big-1.json';
 import data2 from './data-big-2.json';
@@ -268,6 +269,7 @@ const chartModelPie = JChart([
     new Legend({
         disableselect: true
     }),
+    new GeoIndicator(),
 ], {
     layout: {
         left: 0,
@@ -279,6 +281,9 @@ const chartModelPie = JChart([
 
 const g3 = chartModelPie(containerPie, {
     series: dataRandom(),
+    format(value) {
+        return NumberFormatter.format(value);
+    },
 });
 
 const button3 = document.createElement('button');

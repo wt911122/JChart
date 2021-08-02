@@ -9,16 +9,19 @@ class Data1D {
         });
     }
 
-    init(globalCtx, dataOptions, source) {
+    init(globalCtx, dataOptions, source, sourceMeta) {
         Object.assign(source, {
             data: [],
             legend: [],
         });
+        Object.assign(sourceMeta, {
+            formatter: null,
+        });
 
-        this.resetData(dataOptions, source);
+        this.resetData(dataOptions, source, sourceMeta);
     }
 
-    resetData(dataOptions, source) {
+    resetData(dataOptions, source, sourceMeta) {
         const s = dataOptions.series;
 
         Object.assign(source, {
@@ -28,6 +31,9 @@ class Data1D {
                 disabled: false,
             })),
             data: s.map(seri => seri.value),
+        });
+        Object.assign(sourceMeta, {
+            formatter: dataOptions.format || (d => d),
         });
     }
 }

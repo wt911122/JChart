@@ -83,6 +83,7 @@ class PieChart {
                     radius,
                     legend: l,
                     p,
+                    dy: data[sid],
                 });
             });
 
@@ -158,7 +159,7 @@ class PieChart {
             const y1 = vec[1];
             const dist = Math.hypot(x1, y1);
             if(dist > this.radius) {
-                globalCtx.Chart.chartMeta.focused = undefined;
+                globalCtx.Chart.chartMeta.focused = null;
                 return;
             }
 
@@ -171,7 +172,7 @@ class PieChart {
             if(angle < 0) {
                 angle = Math.PI*2 + angle;
             }
-            globalCtx.Chart.chartMeta.focused = seriesInCoord.findIndex((s) => {
+            globalCtx.Chart.chartMeta.focused = seriesInCoord.find((s) => {
                 const { startAngle, endAngle } = s.p;
                 return angle > startAngle && angle < endAngle;
             });
@@ -246,16 +247,16 @@ class PieChart {
             const {
                 seriesInCoord,
             } = globalCtx.Chart.chartMeta;
-            const ps = seriesInCoord.map(s => clone(s.p)) 
+            const ps = seriesInCoord.map(s => clone(s.p)); 
             legend.forEach((l, lid) => {
-                if(focused === lid) {
+                if(focused && focused.legend.name === l.name) {
                     ps[lid].radius = this.radius * 1.15;
                 } else {
                     ps[lid].radius = this.radius;
                 }
             });
             this.animationContext.arcs.animeTo(ps);
-        })
+        });
     }
 }
 
