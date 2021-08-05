@@ -50,7 +50,7 @@ class ThemePlugin {
 
                 globalCtx.theme = {
                     getColor(idx) {
-                        const i = idx % length + 1;
+                        const i = idx % length;
                         return {
                             color: colors[i],
                             disabledColor: disabledColors[i],
