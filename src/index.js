@@ -6,8 +6,9 @@ export default function(
 ) {
     const globalCtx = initContext(plugins, options);
     return (container, data) => {
-        globalCtx.init(container, data);
-        globalCtx.render();
+        globalCtx.init(container, data).then(() => {
+            globalCtx.render();
+        });
         return globalCtx;
     };
 }

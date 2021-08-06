@@ -79,25 +79,31 @@ class GlobalContext {
             legendWrapper: null,
         };
         this.hooks.beforeInitGlobalLayout.call(container, layoutContext);
-        this.hooks.initGlobalLayout.call(container, layoutContext);
+        
+        return new Promise(r => {
+            this.$nextTick(() => {
+                this.hooks.initGlobalLayout.call(container, layoutContext);
 
-        this.hooks.afterDataAndLayoutReady.call();
-        this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
-            this.Coordinate.context2d = ContextProxy;
-            this.Coordinate.canvasElm = canvas;
-            this.Coordinate.init();
-        });
+                this.hooks.afterDataAndLayoutReady.call();
+                this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
+                    this.Coordinate.context2d = ContextProxy;
+                    this.Coordinate.canvasElm = canvas;
+                    this.Coordinate.init();
+                });
 
-        this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
-            this.Chart.context2d = ContextProxy;
-            this.Chart.canvasElm = canvas;
-            this.Chart.init();
-        });
+                this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
+                    this.Chart.context2d = ContextProxy;
+                    this.Chart.canvasElm = canvas;
+                    this.Chart.init();
+                });
 
-        this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
-            this.Overlayer.context2d = ContextProxy;
-            this.Overlayer.canvasElm = canvas;
-            this.Overlayer.init(layoutContext.canvasWrapper);
+                this.initContext(layoutContext.canvasWrapper, (ContextProxy, canvas) => {
+                    this.Overlayer.context2d = ContextProxy;
+                    this.Overlayer.canvasElm = canvas;
+                    this.Overlayer.init(layoutContext.canvasWrapper);
+                });
+                r();
+            });
         });
     }
 
@@ -129,7 +135,7 @@ class GlobalContext {
         });
 
         this.effect(() => {
-            console.log('render begin')
+            console.log('render begin');
             const {
                 context2d,
                 canvasElm
