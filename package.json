@@ -1,6 +1,6 @@
 {
   "name": "@joskii/jchart",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "JChart consist of line chart, bar chart and pie chart which designed for basic data visualization.",
   "repository": {
     "type": "git",
