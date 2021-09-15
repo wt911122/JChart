@@ -54,6 +54,11 @@ class GlobalContext {
             xFloat: undefined
         });
 
+        this.layoutContext = {
+            canvasWrapper: null,
+            legendWrapper: null,
+        };
+
         this.hooks = Object.freeze({
             initTheme: new SyncHook([ 'container' ]),
             beforeInitGlobalLayout: new SyncHook([ 'container', 'layoutContext' ]),
@@ -74,10 +79,7 @@ class GlobalContext {
         this.container = container;
         
         this.globalData.init(dataOptions);
-        const layoutContext = {
-            canvasWrapper: null,
-            legendWrapper: null,
-        };
+        const layoutContext = this.layoutContext;
         this.hooks.beforeInitGlobalLayout.call(container, layoutContext);
         
         return new Promise(r => {
@@ -165,9 +167,9 @@ class GlobalContext {
     }
 
     destroy() {
-        destroyCanvas(this.container, this.Overlayer.canvasElm);
-        destroyCanvas(this.container, this.Chart.canvasElm);
-        destroyCanvas(this.container, this.Coordinate.canvasElm);
+        this.container.removeChild(this.layoutContext.canvasWrapper);
+        this.container.removeChild(this.layoutContext.legendWrapper);
+        this.layoutContext = null;
     }
 }
 

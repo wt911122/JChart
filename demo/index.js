@@ -146,8 +146,14 @@ button.addEventListener('click', () => {
     });
     flag = !flag;
 });
-
 document.body.appendChild(button);
+
+const button1delete = document.createElement('button');
+button1delete.innerText = "destroy!!";
+button1delete.addEventListener('click', () => {
+    globalCtx.destroy();
+});
+document.body.appendChild(button1delete);
 
 const containerdiscrete = document.createElement('div');
 containerdiscrete.setAttribute('style', `
