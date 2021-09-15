@@ -5,7 +5,7 @@ import Data from './layers/data';
 import Coordinate from './layers/coordinate';
 import Chart from './layers/chart';
 import Overlayer from './layers/overlayer';
-import { createCanvas, clearCanvas, destroyCanvas } from './utils';
+import { createCanvas, clearCanvas } from './utils';
 import contextProxy from '../context-api/context-proxy';
 
 class GlobalContext {
@@ -168,7 +168,9 @@ class GlobalContext {
 
     destroy() {
         this.container.removeChild(this.layoutContext.canvasWrapper);
-        this.container.removeChild(this.layoutContext.legendWrapper);
+        if(this.layoutContext.legendWrapper instanceof Node) {
+            this.container.removeChild(this.layoutContext.legendWrapper);
+        }
         this.layoutContext = null;
     }
 }
