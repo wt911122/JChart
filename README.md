@@ -39,18 +39,18 @@ Data is reactive. Every Layer will react to data change in fixed order.
 ### Plugins
 Plugins devided into 4 parts:
 1. Data
-   + [2d-data](./src/plugins/data/2d-data)
-   + [1d-data](./src/plugins/data/1d-data) 
+   + [2d-data](./src/plugins/data/2d-data.js)
+   + [1d-data](./src/plugins/data/1d-data.js) 
 2. Coodinate
-   + [2d-coord](./src/plugins/axis/2d-coord)
-   + [2d-geo](./src/plugins/axis/2d-geo) 
+   + [2d-coord](./src/plugins/axis/2d-coord.js)
+   + [2d-geo](./src/plugins/axis/2d-geo.js) 
 3. Chart
-   + [BarChart](./src/plugins/chart/BarChart)
-   + [LineChart](./src/plugins/chart/LineChart)
-   + [PieChart](./src/plugins/chart/PieChart)
+   + [BarChart](./src/plugins/chart/BarChart.js)
+   + [LineChart](./src/plugins/chart/LineChart.js)
+   + [PieChart](./src/plugins/chart/PieChart.js)
 4. Over
-   + [Legend](./src/plugins/overlayer/Legend)
-   + [LineIndicator](./src/plugins/overlayer/LineIndicator)
+   + [Legend](./src/plugins/overlayer/Legend.js)
+   + [LineIndicator](./src/plugins/overlayer/LineIndicator.js)
 
 ## Configure
 ### Data Configure
