@@ -45,8 +45,7 @@ class ThemePlugin {
                 const length = colors.length;
                 const disabledColors = colors.map(c => [...c, disabledOpacity]);
                 const fadeColors = colors.map(c => [...c, fadeOpacity]);
-                const font = getComputedStyle(container).font;
-                const fontSize = parseFloat(font);
+                const fontSize = parseFloat(getComputedStyle(container).fontSize);
 
                 globalCtx.theme = {
                     getColor(idx) {
